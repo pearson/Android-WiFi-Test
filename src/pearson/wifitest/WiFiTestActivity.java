@@ -42,10 +42,12 @@ public class WiFiTestActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		theTextView1.setText("Checking the SupplicantState. Tell Chris if this hangs.");
 		SupplicantState supplicantState = theWiFi.getConnectionInfo().getSupplicantState();
-		NetworkInfo.DetailedState networkState = theNetwork.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getDetailedState();
-		
 		theTextView1.setText("SupplicantState: " + supplicantState);
+		
+		theTextView2.setText("Checking the NetworkInfo.DetailedState. Tell Chris if this hangs.");
+		NetworkInfo.DetailedState networkState = theNetwork.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getDetailedState();
 		theTextView2.setText("NetworkInfo.DetailedState: " + networkState);
 	}
 }
